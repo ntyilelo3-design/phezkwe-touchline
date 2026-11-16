@@ -120,22 +120,21 @@ section {
 ===================================== */
 
 .hero {
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 20px 110px;
-  background-image:
-    linear-gradient(
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.72)
-    ),
-    url("./Images/background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 110px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.72)
+        ),
+        url("./Images/1backgroung.png") center / cover no-repeat;
+
+    overflow: hidden;
 }
 
 .hero-overlay {
