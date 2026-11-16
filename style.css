@@ -831,6 +831,18 @@ section {
   font-size: 11px;
   margin-top: 20px;
 }
+/* FIX: SHOW FULL FOUNDER AND STORY PHOTOGRAPHS */
+.story-images {
+    width: 100%;
+}
 
+.story-images img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+}
 
 
