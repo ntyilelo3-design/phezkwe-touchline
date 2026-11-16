@@ -1,1 +1,808 @@
 
+/* =====================================
+   PHEZ'KWE TOUCHLINE
+   Complete website stylesheet
+===================================== */
+
+:root {
+  --black: #080808;
+  --dark: #111111;
+  --soft-black: #171717;
+  --white: #f5f3ef;
+  --muted: #aaa69f;
+  --gold: #c6a15b;
+  --gold-light: #dfc38b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+}
+
+
+/* =====================================
+   HEADER AND ICON NAVIGATION
+===================================== */
+
+.site-header {
+  min-height: 78px;
+  width: 100%;
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(8, 8, 8, 0.97);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1.2;
+}
+
+.wordmark span {
+  color: var(--gold);
+  font-size: 8px;
+  letter-spacing: 4px;
+  margin-top: 5px;
+}
+
+.icon-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon-nav a {
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-nav svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-nav a:hover {
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+
+/* =====================================
+   HOME / HERO
+===================================== */
+
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 110px;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.72)
+    ),
+    url("./Images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 5%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 90px);
+  line-height: 1.05;
+  letter-spacing: 7px;
+  font-weight: 400;
+}
+
+.gold-line {
+  width: 65px;
+  height: 1px;
+  background: var(--gold);
+  margin: 27px auto;
+}
+
+.hero-motto {
+  font-size: clamp(13px, 2vw, 17px);
+  letter-spacing: 1.5px;
+}
+
+.hero-subtitle {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-top: 17px;
+}
+
+.outline-link {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  padding: 13px 25px;
+  margin-top: 35px;
+  color: var(--white);
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.outline-link:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  width: 100%;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.scroll-indicator span {
+  color: var(--gold);
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+
+/* =====================================
+   INTRODUCTION
+===================================== */
+
+.intro-section {
+  text-align: center;
+  padding: 115px 22px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.intro-section h2,
+.section-heading h2 {
+  font-size: clamp(27px, 5vw, 43px);
+  font-weight: 400;
+  letter-spacing: 5px;
+  line-height: 1.25;
+}
+
+.intro-copy {
+  max-width: 650px;
+  margin: 25px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+
+/* =====================================
+   COLLECTION SECTIONS
+===================================== */
+
+.collection-section {
+  padding: 100px 7%;
+  background: var(--dark);
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 65px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 14px;
+}
+
+.collection-name {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-top: 14px;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+
+/* PRODUCT GRID */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 55px;
+  row-gap: 85px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 430px;
+  object-fit: contain;
+  object-position: center;
+  background: #141414;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.035);
+}
+
+.product-info {
+  padding: 19px 3px 0;
+}
+
+.product-info h3 {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.product-info p {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+
+/* =====================================
+   CRAFTSMANSHIP
+===================================== */
+
+.craft-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 65px;
+  align-items: center;
+  padding: 115px 9%;
+  background: #0c0c0c;
+}
+
+.craft-copy h2 {
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.15;
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+
+.craft-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  margin-top: 24px;
+  max-width: 400px;
+}
+
+.craft-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.craft-gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #171717;
+}
+
+
+/* =====================================
+   COLLECTION 002
+===================================== */
+
+.collection-two {
+  background: #090909;
+}
+
+.collection-two-brand {
+  display: flex;
+  justify-content: center;
+  margin: -15px auto 75px;
+}
+
+.collection-two-brand img {
+  width: min(350px, 75%);
+  max-height: 300px;
+  object-fit: contain;
+  background: #111;
+}
+
+.collection-two .product-card img {
+  height: 390px;
+}
+
+.rainbow-identity {
+  display: flex;
+  justify-content: center;
+  margin: 90px auto 0;
+}
+
+.rainbow-identity img {
+  width: min(380px, 80%);
+  max-height: 300px;
+  object-fit: contain;
+}
+
+
+/* =====================================
+   OUR STORY
+===================================== */
+
+.story-section {
+  padding: 110px 8%;
+  background: #111;
+}
+
+.story-section .section-heading {
+  margin-bottom: 60px;
+}
+
+.story-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 65px;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.story-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.story-images img {
+  width: 100%;
+  max-height: 390px;
+  object-fit: cover;
+  background: #171717;
+}
+
+.story-copy h3 {
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-bottom: 23px;
+}
+
+.story-copy p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  margin-bottom: 17px;
+}
+
+.story-copy .story-signature {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 28px;
+}
+
+
+/* =====================================
+   OFFICIAL BRAND IDENTITY
+===================================== */
+
+.identity-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: #080808;
+}
+
+.identity-section img {
+  width: min(270px, 70%);
+  max-height: 250px;
+  object-fit: contain;
+  margin: 20px auto;
+}
+
+.identity-section > p:last-child {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+
+/* =====================================
+   CONTACT
+===================================== */
+
+.contact-section {
+  text-align: center;
+  padding: 105px 20px;
+  background: #141414;
+}
+
+.contact-section h2 {
+  font-size: clamp(25px, 5vw, 42px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.3;
+}
+
+.contact-section > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.contact-link {
+  display: table;
+  margin: 30px auto 18px;
+  border: 1px solid var(--gold);
+  padding: 13px 35px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  transition: 0.3s ease;
+}
+
+.contact-link:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.social-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.site-footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #050505;
+  border-top: 1px solid rgba(198, 161, 91, 0.2);
+}
+
+.footer-brand {
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+.site-footer p {
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
+.site-footer .copyright {
+  margin-top: 24px;
+  color: #777;
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 850px) {
+
+  .collection-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .product-grid {
+    column-gap: 25px;
+    row-gap: 55px;
+  }
+
+  .product-card img {
+    height: 340px;
+  }
+
+  .craft-section,
+  .story-layout {
+    gap: 35px;
+  }
+
+  .craft-gallery img {
+    height: 240px;
+  }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .site-header {
+    min-height: 68px;
+    padding: 10px 5%;
+    gap: 10px;
+  }
+
+  .wordmark {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .wordmark span {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .icon-nav {
+    gap: 13px;
+  }
+
+  .icon-nav a {
+    width: 24px;
+    height: 24px;
+  }
+
+  .icon-nav svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .hero {
+    min-height: 82vh;
+    padding: 80px 18px 100px;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 55px);
+    letter-spacing: 4px;
+  }
+
+  .hero-motto {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .intro-section {
+    padding: 80px 22px;
+  }
+
+  .intro-section h2,
+  .section-heading h2 {
+    letter-spacing: 3px;
+  }
+
+  .intro-copy {
+    font-size: 12px;
+  }
+
+  .collection-section {
+    padding: 75px 5%;
+  }
+
+  .section-heading {
+    margin-bottom: 45px;
+  }
+
+  .section-description {
+    font-size: 11px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 13px;
+    row-gap: 42px;
+  }
+
+  .product-card img,
+  .collection-two .product-card img {
+    height: 230px;
+    object-fit: contain;
+  }
+
+  .product-info {
+    padding-top: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .product-info p {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .craft-section {
+    grid-template-columns: 1fr;
+    padding: 75px 7%;
+    gap: 35px;
+  }
+
+  .craft-copy h2 {
+    font-size: 37px;
+  }
+
+  .craft-gallery {
+    gap: 10px;
+  }
+
+  .craft-gallery img {
+    height: 190px;
+  }
+
+  .collection-two-brand {
+    margin-bottom: 45px;
+  }
+
+  .collection-two-brand img {
+    width: min(270px, 85%);
+    max-height: 220px;
+  }
+
+  .rainbow-identity {
+    margin-top: 60px;
+  }
+
+  .rainbow-identity img {
+    width: min(280px, 85%);
+  }
+
+  .story-section {
+    padding: 75px 6%;
+  }
+
+  .story-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .story-images img {
+    max-height: 300px;
+  }
+
+  .story-copy h3 {
+    font-size: 16px;
+  }
+
+  .story-copy p {
+    font-size: 12px;
+  }
+
+  .identity-section {
+    padding: 75px 20px;
+  }
+
+  .contact-section {
+    padding: 80px 18px;
+  }
+
+  .contact-section h2 {
+    letter-spacing: 2px;
+  }
+
+  .site-footer {
+    padding: 35px 15px;
+  }
+}
+
+
+/* =====================================
+   SMALL PHONES
+===================================== */
+
+@media (max-width: 360px) {
+
+  .icon-nav {
+    gap: 8px;
+  }
+
+  .wordmark {
+    font-size: 12px;
+  }
+
+  .product-card img,
+  .collection-two .product-card img {
+    height: 190px;
+  }
+
+  .product-grid {
+    column-gap: 10px;
+  }
+}
+
