@@ -1,351 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body {
-        background-color: #0a0a0a;
-        color: #ffffff;
-        font-family: Georgia, serif;
-        text-align: center;padding: 60px 20px;
-line-height: 1.8;
-    }
-
-    h1 {
-        color: #c9a45c;
-        letter-spacing: 5px;margin-bottom: 30px;
-    }
-
-    p {
-        font-size: 16px;
-        letter-spacing: 2px;
-    }
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.95);
-    padding: 15px 0;
-    margin-bottom: 50px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 3px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-nav a:hover {
-    color: #c9a45c;
-}
-#collection {
-    padding: 80px 20px;
-}
-
-#collection h2 {
-    color: #c9a45c;
-    letter-spacing: 4px;
-    font-size: 24px;
-}
-
-#collection p {
-    letter-spacing: 2px;
-    font-size: 13px;
-}
-#story, #contact {
-    padding: 80px 20px;
-}
-
-#story h2, #contact h2 {
-    color: #c9a45c;
-    letter-spacing: 4px;
-    font-size: 24px;
-}
-
-#story p, #contact p {
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 2;
-}
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    max-width: 600px;
-    margin: 50px auto;
-}
-
-.product-card {
-    border: 1px solid #c9a45c;
-    padding: 35px 15px;
-    text-align: center;
-}
-
-.product-card h3 {
-    color: #c9a45c;
-    letter-spacing: 3px;
-    font-size: 16px;
-}
-
-.product-card p {
-    color: #ffffff;
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-.product-card {
-    transition: 0.3s ease;
-}
-
-.product-card:hover {
-    background-color: #151515;
-    transform: translateY(-5px);
-}
-.product-card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 25px;
-}
-    @media (min-width: 500px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    }
-    body {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('Images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    }
-    footer {
-    background-color: #050505;
-    padding: 50px 20px;
-    margin-top: 60px;
-    border-top: 1px solid #c9a45c;
-}
-
-footer h3 {
-    color: #c9a45c;
-    letter-spacing: 4px;
-    font-size: 18px;
-}
-
-footer p {
-    color: #ffffff;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-footer .copyright {
-    color: #888888;
-    font-size: 10px;
-    margin-top: 30px;
-}
-    #contact a {
-    color: #c9a45c;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-#contact a:hover {
-    color: #ffffff;
-}
-    /* HOMEPAGE HERO */
-
-#home {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 40px 20px;
-    background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
-        url('Images/background.png');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-}
-
-.hero-label {
-    color: #c9a45c;
-    letter-spacing: 5px;
-    font-size: 11px;
-}
-
-#home h1 {
-    color: #ffffff;
-    font-size: clamp(38px, 9vw, 85px);
-    letter-spacing: 5px;
-    line-height: 1.1;
-}
-
-.hero-motto {
-    color: #ffffff;
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin: 25px 0;
-}
-
-.hero-button {
-    display: inline-block;
-    color: #c9a45c;
-    border: 1px solid #c9a45c;
-    padding: 14px 25px;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 2px;
-    transition: 0.3s ease;
-}
-
-.hero-button:hover {
-    background: #c9a45c;
-    color: #000000;
-}
-    
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.product {
-    text-align: center;
-    background: #111;
-    padding: 12px;
-}
-
-.product img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    background: #f5f5f5;
-}
-
-.product h3 {
-    color: white;
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-top: 15px;
-}
-
-.product p {
-    color: #c9a45c;
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHEZ'KWE TOUCHLINE</title>
+
+    <title>PHEZ'KWE TOUCHLINE | Fashion House</title>
+
+    <meta name="description" content="PHEZ'KWE TOUCHLINE. Through every win, every loss, every lesson.">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<nav>
-    <a href="#home">HOME</a>
-    <a href="#collection">COLLECTION</a>
-    <a href="#story">OUR STORY</a>
-    <a href="#contact">CONTACT</a>
-</nav>
+
+<header>
+    <a href="#home" class="logo">PHEZ'KWE</a>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#collection">COLLECTIONS</a>
+        <a href="#story">OUR STORY</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+<main>
 
 <section id="home">
-
     <div class="hero-content">
+        <p class="eyebrow">EST. IN CULTURE</p>
+        <h1>PHEZ'KWE<br>TOUCHLINE</h1>
+        <p class="tagline">THROUGH EVERY WIN, EVERY LOSS, EVERY LESSON.</p>
+        <a href="#collection" class="gold-button">EXPLORE COLLECTION</a>
+    </div>
+</section>
 
-        <p class="hero-label">THE CULTURE SERIES — 001</p>
+<section id="collection">
 
-        <h1>PHEZ’KWE<br>TOUCHLINE</h1>
+    <div class="section-heading">
+        <p class="eyebrow">THE FIRST CHAPTER</p>
+        <h2>COLLECTION 001</h2>
+        <p>THE CULTURE SERIES</p>
+        <p class="made">MADE WITH INTENTION.</p>
+    </div>
 
-        <p class="hero-motto">
-            THROUGH EVERY WIN, EVERY LOSS, EVERY LESSON.
-        </p>
+    <div class="collection-grid">
 
-        <a href="#collection" class="hero-button">
-            EXPLORE COLLECTION
-        </a>
+        <article class="product">
+            <img src="Images/hoodie-black.png" alt="Black signature hoodie">
+            <h3>THE SIGNATURE HOODIE</h3>
+            <p>BLACK EDITION</p>
+        </article>
+
+        <article class="product">
+            <img src="Images/hoodie-white.jpg" alt="White signature hoodie">
+            <h3>THE SIGNATURE HOODIE</h3>
+            <p>WHITE EDITION</p>
+        </article>
+
+        <article class="product">
+            <img src="Images/tshirt-black.png" alt="Black signature T-shirt">
+            <h3>THE SIGNATURE T-SHIRT</h3>
+            <p>BLACK EDITION</p>
+        </article>
+
+        <article class="product">
+            <img src="Images/tshirt-white.png" alt="White signature T-shirt">
+            <h3>THE SIGNATURE T-SHIRT</h3>
+            <p>WHITE EDITION</p>
+        </article>
+
+        <article class="product">
+            <img src="Images/cap.jpg" alt="PHEZ'KWE cap">
+            <h3>THE SIGNATURE CAP</h3>
+            <p>THE CULTURE SERIES</p>
+        </article>
+
+        <article class="product">
+            <img src="Images/rugby-tshirt.png" alt="PHEZ'KWE rugby T-shirt">
+            <h3>THE RUGBY T-SHIRT</h3>
+            <p>SPORT MEETS CULTURE</p>
+        </article>
 
     </div>
 
 </section>
 
-    <section id="collection">
+<section id="collection-two">
 
-    <h2>COLLECTION 001</h2>
+    <div class="section-heading">
+        <p class="eyebrow">THE NEXT CHAPTER</p>
+        <h2>COLLECTION 002</h2>
+        <p>AN EXPRESSION OF IDENTITY.</p>
+    </div>
 
-    <p>THE CULTURE SERIES</p>
+    <div class="collection-two-image">
+        <img src="Images/collection-002-logo.jpg" alt="Collection 002 identity">
+    </div>
 
-    <p>Made with intention.</p>
-
-    </section>
-
-    <section id="collection">
-
-    <div class="product">
-            <img src="Images/ptrainbowblackhoodie.png" alt="Black Rainbow Hoodie">
-
-<img src="Images/ptrainbowwhitehoodie.png" alt="White Rainbow Hoodie">
-
-<img src="Images/ptblackhoodie.png" alt="Black Hoodie">
-
-<img src="Images/ptwhitehoodie.png" alt="White Hoodie">
-
-<img src="Images/cap.jpg" alt="Black Cap">
-
-<img src="Images/tshirt.jpg" alt="Black T-shirt">
+    <div class="details-gallery">
+        <img src="Images/hoodie-rainbow-black.png" alt="Rainbow black hoodie">
+        <img src="Images/hoodie-rainbow-white.png" alt="Rainbow white hoodie">
+        <img src="Images/tshirt-rainbow-black.png" alt="Rainbow black T-shirt">
+        <img src="Images/tshirt-rainbow-white.png" alt="Rainbow white T-shirt">
+    </div>
 
 </section>
-    
-    <section id="story">
 
-    <h2>OUR STORY</h2>
+<section id="story">
 
-    <p>PHEZ’KWE TOUCHLINE</p>
+    <div class="story-image">
+        <img src="Images/brand-story.png" alt="PHEZ'KWE brand story">
+    </div>
 
-    <p>
-        Through every win, every loss, every lesson.
-        We remain on the line.
-    </p>
+    <div class="story-content">
+        <p class="eyebrow">BEHIND THE NAME</p>
+        <h2>OUR STORY</h2>
 
-    <p>MADE WITH INTENTION.</p>
+        <p>
+            PHEZ'KWE comes from Phezulu kwe Touchline —
+            standing on top of the touchline.
+        </p>
 
-    </section>
+        <p>
+            It represents identity, resilience, culture and purpose.
+            A reminder that we remain on the line through every
+            victory, every defeat and every lesson.
+        </p>
+
+        <p class="made">MADE WITH INTENTION.</p>
+    </div>
+
+</section>
+
+<section id="identity">
+
+    <p class="eyebrow">OUR IDENTITY</p>
+    <img src="Images/official-logo-black.jpg" alt="Official PHEZ'KWE logo">
+
+</section>
 
 <section id="contact">
 
-    <h2>CONTACT</h2>
+    <p class="eyebrow">CONNECT WITH US</p>
+    <h2>BE PART OF THE CULTURE.</h2>
 
-    <p>For enquiries and collaborations:</p>
+    <p>For enquiries, partnerships and collaborations.</p>
 
-    <p>Get in touch with PHEZ’KWE TOUCHLINE.</p>
-
-    <p>
-        <a href="mailto:phezkwetouchline@gmail.com">
-            phezkwetouchline@gmail.com
-        </a>
-    </p>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+        FOLLOW OUR JOURNEY
+    </a>
 
 </section>
 
-    <footer>
-    <h3>PHEZ’KWE TOUCHLINE</h3>
-    <p>Through every win, every loss, every lesson.</p>
-    <p>MADE WITH INTENTION.</p>
-    <p class="copyright">
-        © 2026 PHEZ’KWE TOUCHLINE. All rights reserved.
-    </p>
+</main>
+
+<footer>
+    <p>PHEZ'KWE TOUCHLINE</p>
+    <p>THROUGH EVERY WIN, EVERY LOSS, EVERY LESSON.</p>
+    <p>© 2026 PHEZ'KWE TOUCHLINE. ALL RIGHTS RESERVED.</p>
 </footer>
-    
+
 </body>
 </html>
