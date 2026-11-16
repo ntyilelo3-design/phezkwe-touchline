@@ -338,6 +338,59 @@
     <p class="copyright">© 2026 PHEZ’KWE TOUCHLINE. ALL RIGHTS RESERVED.</p>
   </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const viewer = document.createElement("div");
+    viewer.className = "image-lightbox";
+    viewer.setAttribute("role", "dialog");
+    viewer.setAttribute("aria-modal", "true");
+    viewer.setAttribute("aria-label", "Image viewer");
+
+    const largeImage = document.createElement("img");
+    largeImage.alt = "";
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "image-lightbox-close";
+    closeButton.type = "button";
+    closeButton.innerHTML = "&times;";
+    closeButton.setAttribute("aria-label", "Close image");
+
+    viewer.appendChild(largeImage);
+    viewer.appendChild(closeButton);
+    document.body.appendChild(viewer);
+
+    function closeViewer() {
+        viewer.classList.remove("active");
+        document.body.classList.remove("image-viewer-open");
+        largeImage.src = "";
+    }
+
+    document.addEventListener("click", function (event) {
+        const clickedImage = event.target.closest("img");
+
+        if (!clickedImage || viewer.contains(clickedImage)) return;
+
+        largeImage.src = clickedImage.currentSrc || clickedImage.src;
+        largeImage.alt = clickedImage.alt || "Enlarged image";
+
+        viewer.classList.add("active");
+        document.body.classList.add("image-viewer-open");
+    });
+
+    closeButton.addEventListener("click", closeViewer);
+
+    viewer.addEventListener("click", function (event) {
+        if (event.target === viewer) closeViewer();
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && viewer.classList.contains("active")) {
+            closeViewer();
+        }
+    });
+});
+</script>
+
 </body>
 </html>
 
