@@ -916,5 +916,19 @@ body.image-viewer-open {
 .identity-section img {
     cursor: zoom-in;
 }
+/* NAVIGATION VISIBILITY FIX */
+.site-header .icon-nav {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 1001;
+}
 
+.site-header .icon-nav a {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #c6a15b !important;
+}
 
