@@ -859,5 +859,54 @@ body {
     background-attachment: fixed;
     background-color: #080808;
 }
+/* FULL-SCREEN IMAGE VIEWER */
+
+.image-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.96);
+    align-items: center;
+    justify-content: center;
+    padding: 55px 15px;
+}
+
+.image-lightbox.active {
+    display: flex;
+}
+
+.image-lightbox img {
+    max-width: 95vw;
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    color: #d4af37;
+    background: transparent;
+    border: none;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+body.image-viewer-open {
+    overflow: hidden;
+}
+
+.product-card img,
+.craft-gallery img,
+.story-images img,
+.collection-two-brand img,
+.rainbow-identity img,
+.identity-section img {
+    cursor: zoom-in;
+}
 
 
