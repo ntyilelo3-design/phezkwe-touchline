@@ -806,3 +806,27 @@ section {
   }
 }
 
+.whatsapp-link {
+  display: table;
+  margin: 18px auto;
+  padding: 14px 30px;
+  background: #c6a15b;
+  color: #080808;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+
+.whatsapp-link:hover {
+  background: #dfc38b;
+  transform: translateY(-2px);
+}
+
+.contact-email {
+  color: #aaa69f;
+  font-size: 11px;
+  margin-top: 20px;
+}
+
+
