@@ -376,4 +376,83 @@ footer p {
     }
 }
 
+/* ICON NAVIGATION */
+
+.site-header {
+    min-height: 75px;
+    padding: 15px 7%;
+}
+
+.icon-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.icon-nav a {
+    width: 28px;
+    height: 28px;
+    color: #c6a15b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.icon-nav svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon-nav a:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* PLAYGROUND PHOTOGRAPH */
+
+.playground-image {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.playground-image img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+/* HOMEPAGE BACKGROUND */
+
+#home {
+    min-height: calc(100vh - 75px);
+    background-image:
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.55)),
+        url("./Images/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 750px) {
+    .site-header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .icon-nav {
+        gap: 18px;
+    }
+
+    .icon-nav a {
+        width: 25px;
+        height: 25px;
+    }
+}
+
 
