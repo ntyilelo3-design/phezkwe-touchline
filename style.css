@@ -843,5 +843,21 @@ section {
     object-fit: contain !important;
     object-position: center top !important;
 }
+/* FULL WEBSITE BACKGROUND */
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("./Images/1backgroung.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #080808;
+}
 
 
