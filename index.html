@@ -459,6 +459,53 @@ ADD TO BAG</button>
     <div id="cart-items"></div>
     <p id="cart-total-items">Your bag is empty.</p>
   </div>
+  
+<!-- CHECKOUT FORM -->
+<div class="checkout-section">
+    <h3>COMPLETE YOUR ORDER</h3>
+
+    <form id="checkout-form">
+
+        <label for="customer-name">FULL NAME</label>
+        <input
+            type="text"
+            id="customer-name"
+            placeholder="Your full name"
+            required>
+
+        <label for="customer-phone">YOUR WHATSAPP NUMBER</label>
+        <input
+            type="tel"
+            id="customer-phone"
+            placeholder="e.g. 0712345678"
+            required>
+
+        <label for="delivery-method">DELIVERY METHOD</label>
+        <select id="delivery-method" required>
+            <option value="">Choose an option</option>
+            <option value="Collection">Collection</option>
+            <option value="Delivery">Delivery</option>
+        </select>
+
+        <label for="delivery-address">DELIVERY ADDRESS / COLLECTION DETAILS</label>
+        <textarea
+            id="delivery-address"
+            rows="3"
+            placeholder="Enter your address or preferred collection details"></textarea>
+
+        <label for="order-notes">ADDITIONAL NOTES</label>
+        <textarea
+            id="order-notes"
+            rows="3"
+            placeholder="Any special requests?"></textarea>
+
+        <button type="submit" class="checkout-button">
+            SUBMIT ORDER ON WHATSAPP
+        </button>
+
+    </form>
+</div>
+
 </div>
 
 <script>
