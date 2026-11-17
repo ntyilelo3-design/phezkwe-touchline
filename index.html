@@ -514,10 +514,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-  <script>
+
+<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     let cart = [];
+    let selectedButton = null;
 
     const cartToggle = document.getElementById("cart-toggle");
     const cartContent = document.getElementById("cart-content");
@@ -525,38 +527,124 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartItems = document.getElementById("cart-items");
     const cartTotal = document.getElementById("cart-total-items");
 
-    cartToggle.addEventListener("click", function () {
+    // SIZE OPTIONS
+    const clothingSizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
+
+    // CREATE SIZE POP-UP
+    const sizePopup = document.createElement("div");
+    sizePopup.className = "size-popup";
+    sizePopup.innerHTML = `
+        <div class="size-popup-content">
+            <button type="button" class="size-close">&times;</button>
+            <p class="size-eyebrow">PHEZ'KWE TOUCHLINE</p>
+            <h2>SELECT YOUR SIZE</h2>
+            <p class="size-product-name"></p>
+            <div class="size-options"></div>
+            <button type="button" class="size-cancel">CANCEL</button>
+        </div>
+    `;
+
+    document.body.appendChild(sizePopup);
+
+    const sizeOptions = sizePopup.querySelector(".size-options");
+    const sizeProductName = sizePopup.querySelector(".size-product-name");
+
+    function closeSizePopup() {
+        sizePopup.classList.remove("active");
+        selectedButton = null;
+    }
+
+    sizePopup.querySelector(".size-close")
+        .addEventListener("click", closeSizePopup);
+
+    sizePopup.querySelector(".size-cancel")
+        .addEventListener("click", closeSizePopup);
+
+    sizePopup.addEventListener("click", function(event) {
+        if (event.target === sizePopup) closeSizePopup();
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeSizePopup();
+    });
+
+    // OPEN SIZE POP-UP
+    document.querySelectorAll(".add-to-cart").forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            selectedButton = button;
+
+            const isCap = button.dataset.code === "PT-C001-005";
+
+            sizeProductName.textContent =
+                button.dataset.name + " · " + button.dataset.colour;
+
+            sizeOptions.innerHTML = "";
+
+            const availableSizes = isCap
+                ? ["ONE SIZE (ADJUSTABLE)"]
+                : clothingSizes;
+
+            availableSizes.forEach(function(size) {
+
+                const sizeButton = document.createElement("button");
+                sizeButton.type = "button";
+                sizeButton.className = "size-option";
+                sizeButton.textContent = size;
+
+                sizeButton.addEventListener("click", function() {
+                    addItemToCart(selectedButton, size);
+                    closeSizePopup();
+                });
+
+                sizeOptions.appendChild(sizeButton);
+            });
+
+            sizePopup.classList.add("active");
+        });
+
+    });
+
+    // ADD PRODUCT TO BAG
+    function addItemToCart(button, size) {
+
+        const code = button.dataset.code;
+        const key = code + "-" + size;
+
+        const existingItem = cart.find(item => item.key === key);
+
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                key: key,
+                code: code,
+                name: button.dataset.name,
+                colour: button.dataset.colour,
+                image: button.dataset.image,
+                size: size,
+                quantity: 1
+            });
+        }
+
+        updateCart();
+    }
+
+    // SHOPPING BAG OPEN / CLOSE
+    cartToggle.addEventListener("click", function() {
         cartContent.hidden = !cartContent.hidden;
     });
 
-    document.querySelectorAll(".add-to-cart").forEach(function (button) {
-        button.addEventListener("click", function () {
-
-            const code = button.dataset.code;
-            const existingItem = cart.find(item => item.code === code);
-
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({
-                    code: code,
-                    name: button.dataset.name,
-                    colour: button.dataset.colour,
-                    image: button.dataset.image,
-                    quantity: 1
-                });
-            }
-
-            updateCart();
-        });
-    });
-
+    // UPDATE SHOPPING BAG
     function updateCart() {
+
         cartItems.innerHTML = "";
 
         let total = 0;
 
-        cart.forEach(function (item) {
+        cart.forEach(function(item) {
+
             total += item.quantity;
 
             const product = document.createElement("div");
@@ -565,20 +653,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const name = document.createElement("p");
             name.textContent = item.name;
 
-            const colour = document.createElement("p");
-            colour.textContent = item.colour + " · " + item.code;
+            const details = document.createElement("p");
+            details.textContent =
+                item.colour + " · " + item.code;
+
+            const size = document.createElement("p");
+            size.textContent = "SIZE: " + item.size;
 
             const controls = document.createElement("div");
             controls.className = "cart-controls";
 
             const minus = document.createElement("button");
-            minus.textContent = "−";
             minus.type = "button";
-            minus.addEventListener("click", function () {
+            minus.textContent = "−";
+
+            minus.addEventListener("click", function() {
                 item.quantity--;
 
                 if (item.quantity <= 0) {
-                    cart = cart.filter(product => product.code !== item.code);
+                    cart = cart.filter(product => product.key !== item.key);
                 }
 
                 updateCart();
@@ -588,23 +681,26 @@ document.addEventListener("DOMContentLoaded", function () {
             quantity.textContent = item.quantity;
 
             const plus = document.createElement("button");
-            plus.textContent = "+";
             plus.type = "button";
-            plus.addEventListener("click", function () {
+            plus.textContent = "+";
+
+            plus.addEventListener("click", function() {
                 item.quantity++;
                 updateCart();
             });
 
             const remove = document.createElement("button");
-            remove.textContent = "REMOVE";
             remove.type = "button";
-            remove.addEventListener("click", function () {
-                cart = cart.filter(product => product.code !== item.code);
+            remove.textContent = "REMOVE";
+
+            remove.addEventListener("click", function() {
+                cart = cart.filter(product => product.key !== item.key);
                 updateCart();
             });
 
             controls.append(minus, quantity, plus, remove);
-            product.append(name, colour, controls);
+            product.append(name, details, size, controls);
+
             cartItems.appendChild(product);
         });
 
