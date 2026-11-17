@@ -552,6 +552,80 @@ document.addEventListener("DOMContentLoaded", function () {
     <p id="cart-total-items">Your bag is empty.</p>
   </div>
   </div>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let cart = [];
+
+    const cartToggle = document.getElementById("cart-toggle");
+    const cartContent = document.getElementById("cart-content");
+    const cartCount = document.getElementById("cart-count");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total-items");
+
+    cartToggle.addEventListener("click", function () {
+        cartContent.hidden = !cartContent.hidden;
+    });
+
+    document.querySelectorAll(".add-to-cart").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const code = button.dataset.code;
+            const name = button.dataset.name;
+            const colour = button.dataset.colour;
+            const image = button.dataset.image;
+
+            const existingItem = cart.find(item => item.code === code);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    code,
+                    name,
+                    colour,
+                    image,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+        });
+
+    });
+
+    function updateCart() {
+
+        cartItems.innerHTML = "";
+
+        let total = 0;
+
+        cart.forEach(function (item) {
+
+            total += item.quantity;
+
+            const product = document.createElement("div");
+
+            product.innerHTML = `
+                <p><strong>${item.name}</strong></p>
+                <p>${item.colour}</p>
+                <p>Code: ${item.code}</p>
+                <p>Quantity: ${item.quantity}</p>
+            `;
+
+            cartItems.appendChild(product);
+        });
+
+        cartCount.textContent = total;
+
+        cartTotal.textContent = total === 0
+            ? "Your bag is empty."
+            : total + " item(s) in your bag.";
+    }
+
+});
+  </script>
 
 </body>
 </html>
