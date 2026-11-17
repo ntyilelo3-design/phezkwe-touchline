@@ -540,19 +540,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-</script>
-  <div id="shopping-cart" class="shopping-cart">
-  <button id="cart-toggle" type="button">
-    SHOPPING BAG (<span id="cart-count">0</span>)
-  </button>
 
-  <div id="cart-content" hidden>
-    <h2>YOUR SHOPPING BAG</h2>
-    <div id="cart-items"></div>
-    <p id="cart-total-items">Your bag is empty.</p>
-  </div>
-  </div>
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     let cart = [];
@@ -568,52 +557,81 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.querySelectorAll(".add-to-cart").forEach(function (button) {
-
         button.addEventListener("click", function () {
 
             const code = button.dataset.code;
-            const name = button.dataset.name;
-            const colour = button.dataset.colour;
-            const image = button.dataset.image;
-
             const existingItem = cart.find(item => item.code === code);
 
             if (existingItem) {
                 existingItem.quantity++;
             } else {
                 cart.push({
-                    code,
-                    name,
-                    colour,
-                    image,
+                    code: code,
+                    name: button.dataset.name,
+                    colour: button.dataset.colour,
+                    image: button.dataset.image,
                     quantity: 1
                 });
             }
 
             updateCart();
         });
-
     });
 
     function updateCart() {
-
         cartItems.innerHTML = "";
 
         let total = 0;
 
         cart.forEach(function (item) {
-
             total += item.quantity;
 
             const product = document.createElement("div");
+            product.className = "cart-item";
 
-            product.innerHTML = `
-                <p><strong>${item.name}</strong></p>
-                <p>${item.colour}</p>
-                <p>Code: ${item.code}</p>
-                <p>Quantity: ${item.quantity}</p>
-            `;
+            const name = document.createElement("p");
+            name.textContent = item.name;
 
+            const colour = document.createElement("p");
+            colour.textContent = item.colour + " · " + item.code;
+
+            const controls = document.createElement("div");
+            controls.className = "cart-controls";
+
+            const minus = document.createElement("button");
+            minus.textContent = "−";
+            minus.type = "button";
+            minus.addEventListener("click", function () {
+                item.quantity--;
+
+                if (item.quantity <= 0) {
+                    cart = cart.filter(product => product.code !== item.code);
+                }
+
+                updateCart();
+            });
+
+            const quantity = document.createElement("span");
+            quantity.textContent = item.quantity;
+
+            const plus = document.createElement("button");
+            plus.textContent = "+";
+            plus.type = "button";
+            plus.addEventListener("click", function () {
+                item.quantity++;
+                updateCart();
+            });
+
+            const remove = document.createElement("button");
+            remove.textContent = "REMOVE";
+            remove.type = "button";
+            remove.addEventListener("click", function () {
+                cart = cart.filter(product => product.code !== item.code);
+                updateCart();
+            });
+
+            controls.append(minus, quantity, plus, remove);
+            product.append(name, colour, controls);
             cartItems.appendChild(product);
         });
 
@@ -625,7 +643,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
-  </script>
+</script>
+
 
 </body>
 </html>
