@@ -489,6 +489,19 @@
     <p class="copyright">© 2026 PHEZ’KWE TOUCHLINE. ALL RIGHTS RESERVED.</p>
   </footer>
 
+<!-- SHOPPING BAG -->
+<div id="shopping-cart" class="shopping-cart">
+  <button id="cart-toggle" type="button">
+    SHOPPING BAG (<span id="cart-count">0</span>)
+  </button>
+
+  <div id="cart-content" hidden>
+    <h2>YOUR SHOPPING BAG</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total-items">Your bag is empty.</p>
+  </div>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const viewer = document.createElement("div");
