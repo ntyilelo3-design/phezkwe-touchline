@@ -1063,4 +1063,39 @@ body.image-viewer-open {
     letter-spacing: 2px;
 }
 
+/* FORCE SIZE POP-UP DARK THEME */
+
+.size-popup {
+    background-color: rgba(0, 0, 0, 0.92) !important;
+}
+
+.size-popup-content {
+    background-color: #141414 !important;
+    color: #ffffff !important;
+    border: 1px solid #c5a04b !important;
+}
+
+.size-popup-content h2,
+.size-product-name {
+    color: #ffffff !important;
+}
+
+.size-option {
+    background-color: #141414 !important;
+    color: #ffffff !important;
+    border: 1px solid #c5a04b !important;
+}
+
+.size-option:hover {
+    background-color: #c5a04b !important;
+    color: #111111 !important;
+}
+
+.size-cancel {
+    background-color: transparent !important;
+    color: #c5a04b !important;
+    border: 1px solid #c5a04b !important;
+}
+
+
 
