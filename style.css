@@ -1287,6 +1287,60 @@ body.image-viewer-open {
     box-sizing: border-box;
 }
 
+/* SHOPPING BAG - MOBILE PANEL FIX */
+.shopping-cart {
+    position: static !important;
+}
+
+#cart-toggle {
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    z-index: 100001 !important;
+}
+
+#cart-content {
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 75px !important;
+    top: auto !important;
+    width: min(340px, calc(100vw - 24px)) !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 18px !important;
+    margin: 0 !important;
+    background: #141414 !important;
+    color: #ffffff !important;
+    border: 1px solid #c5a04b !important;
+    z-index: 100000 !important;
+}
+
+#cart-content[hidden] {
+    display: none !important;
+}
+
+#cart-content:not([hidden]) {
+    display: block !important;
+}
+
+#checkout-form,
+.checkout-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#checkout-form input,
+#checkout-form select,
+#checkout-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+
 
 
 
