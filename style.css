@@ -1188,6 +1188,65 @@ body.image-viewer-open {
     font-size: 11px !important;
 }
 
+/* PHEZ'KWE CHECKOUT */
+
+.checkout-section {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #c5a04b;
+}
+
+.checkout-section h3 {
+    color: #c5a04b;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#checkout-form label {
+    color: #c5a04b;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+}
+
+#checkout-form input,
+#checkout-form select,
+#checkout-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background: #202020;
+    color: #ffffff;
+    border: 1px solid #8c713b;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+#checkout-form input::placeholder,
+#checkout-form textarea::placeholder {
+    color: #999999;
+}
+
+.checkout-button {
+    margin-top: 15px;
+    padding: 15px 10px;
+    background: #c5a04b;
+    color: #111111;
+    border: 1px solid #c5a04b;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
 
 
 
