@@ -682,6 +682,68 @@ document.addEventListener("DOMContentLoaded", function () {
     cartToggle.addEventListener("click", function() {
         cartContent.hidden = !cartContent.hidden;
     });
+  
+// WHATSAPP CHECKOUT
+const checkoutForm = document.getElementById("checkout-form");
+
+checkoutForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (cart.length === 0) {
+        alert("Your shopping bag is empty. Please add products first.");
+        return;
+    }
+
+    const customerName =
+        document.getElementById("customer-name").value.trim();
+
+    const customerPhone =
+        document.getElementById("customer-phone").value.trim();
+
+    const deliveryMethod =
+        document.getElementById("delivery-method").value;
+
+    const deliveryAddress =
+        document.getElementById("delivery-address").value.trim();
+
+    const orderNotes =
+        document.getElementById("order-notes").value.trim();
+
+    let message = "HELLO PHEZ'KWE TOUCHLINE!\n";
+    message += "I WOULD LIKE TO PLACE AN ORDER.\n\n";
+
+    message += "CUSTOMER DETAILS\n";
+    message += "Name: " + customerName + "\n";
+    message += "WhatsApp: " + customerPhone + "\n\n";
+
+    message += "ORDER DETAILS\n";
+
+    cart.forEach(function(item, index) {
+        message += (index + 1) + ". " + item.name + "\n";
+        message += "Colour: " + item.colour + "\n";
+        message += "Size: " + item.size + "\n";
+        message += "Product code: " + item.code + "\n";
+        message += "Quantity: " + item.quantity + "\n\n";
+    });
+
+    message += "FULFILMENT\n";
+    message += "Method: " + deliveryMethod + "\n";
+    message += "Address / collection details: ";
+    message += deliveryAddress || "To be discussed";
+    message += "\n\n";
+
+    message += "Additional notes: ";
+    message += orderNotes || "None";
+    message += "\n\n";
+    message += "Please confirm availability and pricing. Thank you!";
+
+    const whatsappURL =
+        "https://wa.me/27697432908?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+});
+
 
     // UPDATE SHOPPING BAG
     function updateCart() {
